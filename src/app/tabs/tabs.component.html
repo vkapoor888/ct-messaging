@@ -1,0 +1,8 @@
+<div>
+<ul>
+  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" id="{{tab.tabTitle}}" style="display:inline">
+    {{tab.tabTitle}} |
+  </li>
+</ul>
+<ng-content></ng-content>
+</div>
