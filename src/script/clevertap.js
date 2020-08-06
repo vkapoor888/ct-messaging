@@ -58,6 +58,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
   //alert("Event Pushed!!");
 
+  ///EXTENSION POINT TO INJECT CUSTOMISATION////
   clevertap.notificationCallback = function(msg){
     //alert(JSON.stringify(msg));
     // Raise the notification viewed and clicked events in the callback
@@ -67,9 +68,12 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 			toastElement.style.display = "block";
     }
     //alert(msg.kv.insepector);
-		window.parent.document.getElementById('innerDiv').innerHTML=msg.kv.insepector;
-		console.log(JSON.stringify(msg.msgContent.html));//your custom rendering implementation here
-    //console.log(">>>>>>>>>>>"+JSON.stringify(msg.kv));
+    window.parent.document.getElementById('heading').innerHTML=msg.kv.heading;
+    window.parent.document.getElementById('desc').innerHTML=msg.kv.desc;
+    console.log("new message recieved ::::::::::::::::::::::: ");
+    console.log(":::::::::: msg.kvmsgId == "+JSON.stringify(msg.msgId));
+    console.log(":::::::::: msg.kv == "+JSON.stringify(msg.kv));
+    console.log(":::::::::: msg.msgContent == "+JSON.stringify(msg.msgContent));
     var $button = jQuery("#outerDiv");//element on whose click you want to raise the notification clicked event
 		$button.click(function(){
       //alert('Toast Clicked!!');
